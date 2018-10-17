@@ -31,6 +31,21 @@ public class BattlePlayerVsPlayer extends Thread{
     
     @Override
     public void run(){
+        System.out.println("RUN");
+        
+           try {
+            outputStream = new ObjectOutputStream(player1.getHero().getSocket().getOutputStream());
+            PvPBattleInformation information = new PvPBattleInformation(player1.getHero().heathPointAfterAttack(0), player2.getHero().heathPointAfterAttack(0),true);
+            outputStream.writeObject(information);
+            
+            outputStream = new ObjectOutputStream(player2.getHero().getSocket().getOutputStream());
+            information = new PvPBattleInformation(player2.getHero().heathPointAfterAttack(0), player1.getHero().heathPointAfterAttack(0),false);
+            outputStream.writeObject(information);
+
+        } catch (IOException ex) {
+            Logger.getLogger(BattleVsMonster.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         do {      
             Attack(player1, player2);
             
@@ -59,11 +74,11 @@ public class BattlePlayerVsPlayer extends Thread{
 
         try {
             outputStream = new ObjectOutputStream(attacker.getHero().getSocket().getOutputStream());
-            PvPBattleInformation information = new PvPBattleInformation(attacker.getHero().heathPointAfterAttack(0), defender.getHero().heathPointAfterAttack(0));
+            PvPBattleInformation information = new PvPBattleInformation(attacker.getHero().heathPointAfterAttack(0), defender.getHero().heathPointAfterAttack(0),false);
             outputStream.writeObject(information);
             
             outputStream = new ObjectOutputStream(defender.getHero().getSocket().getOutputStream());
-            information = new PvPBattleInformation(defender.getHero().heathPointAfterAttack(0), attacker.getHero().heathPointAfterAttack(0));
+            information = new PvPBattleInformation(defender.getHero().heathPointAfterAttack(0), attacker.getHero().heathPointAfterAttack(0),false);
             outputStream.writeObject(information);
 
         } catch (IOException ex) {

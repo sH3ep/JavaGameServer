@@ -34,6 +34,7 @@ public class SynchronizableGameData extends Thread{
             if (((tempDate-firstPlayerDate)>5000)&&((pvpWaitingPlayers.size()%2)==0))
             {
                 startPvpDraw();
+                System.out.println("StartPVPDraw");
             
             }
         }
