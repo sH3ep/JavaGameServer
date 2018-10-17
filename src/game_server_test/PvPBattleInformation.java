@@ -15,10 +15,12 @@ public class PvPBattleInformation implements Serializable{
     
     private int heroHP;
     private int oponentHP;
+    private boolean firstAttack;
     
-    public PvPBattleInformation (int heroHP, int oponentHP){
+    public PvPBattleInformation (int heroHP, int oponentHP,boolean firstAttack){
         this.heroHP = heroHP;
         this.oponentHP = oponentHP;
+        this.firstAttack = firstAttack;
     }
     
     public int GetHeroHP (){
@@ -27,6 +29,10 @@ public class PvPBattleInformation implements Serializable{
     
     public int GetOponentHP () {
         return oponentHP;
+    }
+    
+    public boolean GetFirstAttack(){
+        return firstAttack;
     }
     
 }

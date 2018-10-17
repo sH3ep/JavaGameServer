@@ -56,9 +56,9 @@ public class BattleVsMonster {
 
             try {
                 outputStream = new ObjectOutputStream(hero.getSocket().getOutputStream());
-                BattleInformation information = new BattleInformation(hero.heathPointAfterAttack(0), dragon.heathPointAfterAttack(0));
+                BattleInformation information = new BattleInformation(hero.heathPointAfterAttack(0), dragon.heathPointAfterAttack(0),true);
                 outputStream.writeObject(information);
-                System.out.println("Twoje HP: " + information.GetHeroHP() + "      HP przeciwnika: " + information.GetMoobHP());
+                System.out.println("Twoje HP: " + information.GetHeroHP() + "      HP przeciwnika: " + information.GetOpponentHP());
 
             } catch (IOException ex) {
                 Logger.getLogger(BattleVsMonster.class.getName()).log(Level.SEVERE, null, ex);

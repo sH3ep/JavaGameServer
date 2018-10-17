@@ -14,19 +14,24 @@ import java.io.Serializable;
 public class BattleInformation implements Serializable {
     
     private int heroHP;
-    private int moobHP;
+    private int opponentHP;
+    private boolean firstAttack;
     
-    public BattleInformation (int heroHP, int moobHP){
+    public BattleInformation (int heroHP, int opponentHP, boolean firstAttack){
         this.heroHP = heroHP;
-        this.moobHP = moobHP;
+        this.opponentHP = opponentHP;
+        this.firstAttack = firstAttack;
     }
     
     public int GetHeroHP (){
         return heroHP;
     }
     
-    public int GetMoobHP () {
-        return moobHP;
+    public int GetOpponentHP () {
+        return opponentHP;
+    }
+    public boolean GetFirstAttack(){
+        return firstAttack;
     }
     /**
      * zmian zmian zmiana
