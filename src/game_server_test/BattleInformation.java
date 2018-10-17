@@ -28,5 +28,8 @@ public class BattleInformation implements Serializable {
     public int GetMoobHP () {
         return moobHP;
     }
+    /**
+     * zmian zmian zmiana
+     */
     
 }
