@@ -5,6 +5,7 @@
  */
 package game_server_test;
 
+import HeroAndSkills.Hero;
 import java.net.Socket;
 
 /**
